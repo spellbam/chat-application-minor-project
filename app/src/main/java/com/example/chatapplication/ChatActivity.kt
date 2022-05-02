@@ -136,7 +136,7 @@ class ChatActivity : AppCompatActivity() {
         return null
     }
 
-    // method to crypt the secret text using key
+    // method to decrypt the secret text using key
     fun decrypt(strToDecrypt: String?, secret: String): String? {
         try {
             setKey(secret)
