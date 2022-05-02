@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/drawable/message_box_backgraound.xml" value="0.14375" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/drawable/sent_message_background.xml" value="0.14375" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/activity_chat.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/activity_log_in.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/activity_sign_up.xml" value="0.12447916666666667" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/receive.xml" value="0.264" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/send.xml" value="0.12760416666666666" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/layout/user_layout.xml" value="0.12447916666666667" />
+        <entry key="..\:/Users/Dell/Desktop/friendly chat/chatApplication/app/src/main/res/menu/menu.xml" value="0.12447916666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
