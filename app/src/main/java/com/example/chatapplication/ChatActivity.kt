@@ -16,6 +16,9 @@ import java.util.*
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 import kotlin.collections.ArrayList
+import kotlin.system.measureTimeMillis
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTimedValue
 
 class ChatActivity : AppCompatActivity() {
 
@@ -29,10 +32,13 @@ class ChatActivity : AppCompatActivity() {
     var receiverRoom : String? =null
     var senderRoom : String? =null
 
+
+
     //for encryption part
     private var secretKey: SecretKeySpec? = null
     private lateinit var key: ByteArray
 
+    @OptIn(ExperimentalTime::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
@@ -88,8 +94,15 @@ class ChatActivity : AppCompatActivity() {
         //Adding the message to database
         sendButton.setOnClickListener{
 
-            var message : String? =null
+           var message : String? =null
              message = messageBox.text.toString()
+            // to see the time required to encrypt the message
+           val (value,time)= measureTimedValue{
+               encrypt(message!!,secretKey)
+           }
+            // print the execution time
+            println("The execution time is: $time ")
+
             message = encrypt(message,secretKey)
             val messageObject = Message(message,senderUid)
 
@@ -124,7 +137,7 @@ class ChatActivity : AppCompatActivity() {
     // method to encrypt the secret text using key
     fun encrypt(strToEncrypt: String, secret: String): String? {
         try {
-            setKey(secret)
+             setKey(secret)
             val cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
             cipher.init(Cipher.ENCRYPT_MODE, secretKey)
             return Base64.getEncoder().encodeToString(cipher.doFinal
