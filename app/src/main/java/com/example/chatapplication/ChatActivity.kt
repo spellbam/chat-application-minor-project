@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.io.UnsupportedEncodingException
+import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets.UTF_8
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import java.util.*
@@ -17,6 +19,7 @@ import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 import kotlin.collections.ArrayList
 import kotlin.system.measureTimeMillis
+import kotlin.text.Charsets.UTF_8
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
@@ -42,6 +45,9 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
+
+        //for intilising the object of desdemo
+        var obj=DESDemo()
 
 
         //for encryption initialization
@@ -96,14 +102,9 @@ class ChatActivity : AppCompatActivity() {
 
            var message : String? =null
              message = messageBox.text.toString()
-            // to see the time required to encrypt the message
-           val (value,time)= measureTimedValue{
-               encrypt(message!!,secretKey)
-           }
-            // print the execution time
-            println("The execution time is: $time ")
 
-            message = encrypt(message,secretKey)
+            //Encryption using DES
+            message = obj.encrypt(message)
             val messageObject = Message(message,senderUid)
 
             mDbRef.child("chats").child(senderRoom!!).child("messages").push()

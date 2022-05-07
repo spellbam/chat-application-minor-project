@@ -27,6 +27,11 @@ class MessageAdapter(val context : Context,val messageList : ArrayList<Message>)
     private var secretKey: SecretKeySpec? = null
     private lateinit var key: ByteArray
 
+    var obj = DESDemo()
+
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         if(viewType == 1){
@@ -47,21 +52,20 @@ class MessageAdapter(val context : Context,val messageList : ArrayList<Message>)
 
         //for encryption initialization
         val secretKey = "secretkey"
-
+        val charset = Charsets.UTF_8
         if(holder.javaClass == SentViewHolder::class.java){
             //do the stuff for sent view holder
 
             val viewHolder =holder as SentViewHolder
-            holder.sentMessage.text = decrypt(currentMessage.message,secretKey)
+
+            holder.sentMessage.text = obj.decryptD(currentMessage.message!!)
 
         }
         else{
             //do stuff for receive view holder
             val viewHolder = holder as ReceiveViewHolder
-            holder.receiveMessage.text = decrypt(currentMessage.message,secretKey)
+            holder.receiveMessage.text = obj.decryptD(currentMessage.message!!)
         }
-
-
 
     }
 
