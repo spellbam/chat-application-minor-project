@@ -23,6 +23,8 @@ import kotlin.text.Charsets.UTF_8
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
+
+
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var chatRecyclerView : RecyclerView
