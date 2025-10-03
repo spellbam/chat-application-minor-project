@@ -55,7 +55,7 @@ class LogIn : AppCompatActivity() {
 
 
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // Display toast in case of failed login
                    Toast.makeText(this@LogIn,"user does not exist",Toast.LENGTH_SHORT).show()
                 }
             }
